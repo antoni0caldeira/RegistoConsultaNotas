@@ -12,6 +12,12 @@ namespace RegistoConsultaNotas
 {
     public partial class frmRegisto : Form
     {
+
+        // Variáveis globais
+        string[] Nomes = new string[10];
+        int[,] DisciplinaNotas = new int[10, 3];
+        int registo = 0;
+
         public frmRegisto()
         {
             InitializeComponent();
@@ -19,11 +25,31 @@ namespace RegistoConsultaNotas
 
 
 
+
         private void Inserir()
         {
-            MessageBox.Show("Inserir", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            
+            if (string.IsNullOrWhiteSpace(txtNome.Text))
+            {
+                MessageBox.Show("Indique o Nome", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (registo >= 10)
+            {
+                MessageBox.Show("Array completo", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            Nomes[registo] = txtNome.Text;
+            DisciplinaNotas[registo, 0] = (int)nudPortugues.Value;
+            DisciplinaNotas[registo, 1] = (int)nudMatematica.Value;
+            DisciplinaNotas[registo, 2] = (int)nudTIC.Value;
+            registo++;
+            Limpar();
         }
+
+
+
 
 
 
