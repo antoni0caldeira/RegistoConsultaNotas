@@ -70,7 +70,8 @@ namespace RegistoConsultaNotas
 
         private void Consultar()
         {
-            MessageBox.Show("Consultar", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            fmrConsulta formulario = new fmrConsulta();
+            formulario.Show();
 
         }
 
