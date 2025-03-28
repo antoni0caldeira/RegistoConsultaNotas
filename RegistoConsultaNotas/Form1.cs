@@ -21,6 +21,7 @@ namespace RegistoConsultaNotas
         public frmRegisto()
         {
             InitializeComponent();
+            Limpar();
         }
 
 
@@ -53,11 +54,17 @@ namespace RegistoConsultaNotas
 
 
 
-        private void Limpar()
-        {
-            MessageBox.Show("Limpar", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
+            private void Limpar()
+        {
+            txtNome.Clear();
+            nudPortugues.Value = 10;
+            nudMatematica.Value = 10;
+            nudTIC.Value = 10;
+            txtNome.Focus();
         }
+
+
 
 
 
